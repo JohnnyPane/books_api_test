@@ -8,7 +8,12 @@ function bookSearch() {
     dataType: "json",
 
     success: function(data) {
-      console.log(data)
+      for(i = 0; i < data.items.length; i++) {
+        results.innerHTML += "<h2>" + data.items[i].volumeInfo.title + "</h2>" + "<br/>" +
+          "<h3>" + data.items[i].volumeInfo.authors + "</h3>" + "<br/>" +
+          `<img src="${data.items[i].volumeInfo.imageLinks.smallThumbnail}">`
+
+      }
     },
     type: 'GET'
   });
